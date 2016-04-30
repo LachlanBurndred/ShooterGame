@@ -11,11 +11,22 @@ var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
 var FPS = 60;
 
-var Update = function()
-{
-    
-} // Main Update Function
+var gameObjects = [];
 
+var up = false;
+var left = false;
+var down = false;
+var right = false;
+
+// Movement variables.
+var KeyCode = {
+    w: 87,
+    a: 65,
+    s: 83,
+    d: 68
+}
+
+// Time Controller
 var Time = {
     deltaTime: 0,
     lastUpdate: 0,
@@ -26,10 +37,4 @@ var Time = {
         this.deltaTime = (this.now - this.lastUpdate) / 1000;
         this.lastUpdate = Date.now();
     }
-} // Time Controller
-
-setInterval(function ()
-{
-    Update();
-    Time.GetDeltaTime();
-}, 1000 / FPS); // Runs Update 60TPS
+}
